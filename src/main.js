@@ -28,6 +28,8 @@ import './assets/js/bootstrap.min'
 /* animate.css */
 import 'animate.css'
 
+/* IE 适配*/
+import 'babel-polyfill' 
  
 /* 头部组件 */
 import Header from './components/Header'

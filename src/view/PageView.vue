@@ -9,6 +9,10 @@ export default {
 }
 </script>
 <style scoped>
-
+#container {
+    flex: 1 1 auto;
+    background: url('../assets/img/mainBackground.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
 </style>
-

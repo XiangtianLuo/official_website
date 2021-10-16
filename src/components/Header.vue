@@ -2,24 +2,11 @@
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild">
     <!-- 头部顶部 -->
-    <div class="header-top container-fuild hidden-xs">
-      <div class="container">
-        <div class="server pull-left">
-          <span class="glyphicon glyphicon-earphone"></span>888-888-888
-          <span class="glyphicon glyphicon-envelope"></span>liyunkun_11@163.com
-          <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
-        </div>
-        <div class="shejiao pull-right">
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
-          <span class="glyphicon glyphicon-hand-left"></span>
-        </div>
-      </div>
-    </div>
     <!-- 电脑导航 -->
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
-        <img src="@/assets/img/logo_black.png">
+        <img src="@/assets/img/company-logo.png">
       </div>
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper">
@@ -35,8 +22,11 @@
             <i class="underline"></i>
           </router-link>
           <dl v-if="item.children.length>0">
-            <dt v-for="(i,n) in item.children" :key="n">
-              <router-link :to="i.path">{{i.name}}</router-link>
+            <dt
+              v-for="(i,n) in item.children" :key="n"
+              @click="navSubClick(i.path)"
+            >
+              <a>{{i.name}}</a>
             </dt>
           </dl>
         </li>
@@ -45,7 +35,7 @@
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
-        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">
+        <img class="center-block mobile-header-img" src="@/assets/img/company-logo.png" alt="logo">
       </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
@@ -61,17 +51,41 @@
         <!-- 导航内容 -->
         <ul id="menu" class="header-nav-m-wrapper collapse">
           <li
+            class="nav-item"
+            :class="item.children.length>0?'dropdown':''"
             v-for="(item,index) in navList"
             :key="index"
-            :class="index==navIndex?'active':''"
-            @click="navClick(index,item.name)"
             data-toggle="collapse"
             data-target="#menu"
           >
-            <router-link :to="item.path">
-              {{item.name}}
-              <i class="underline"></i>
-            </router-link>
+            <div
+              v-if="item.children.length==0"
+              @click="navClickCollapse(index,item.name,item.path)"
+            >
+              <div
+                :to="item.path"      
+              >
+                {{item.name}}
+                <i class="underline"></i>
+              </div>
+            </div>
+
+            <div
+              v-else
+            >
+              <a class="nav-link dropdown-toggle text-center dropdown-a" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{item.name}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div
+                  v-for="(i,n) in item.children" :key="n"
+                  @click="navSubClick(i.path)"
+                >
+                  <a class="dropdown-a">{{i.name}}</a>
+                  <i class="underline"></i>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -93,28 +107,18 @@ export default {
           children: []
         },
         {
-          name: "软件产品",
-          path: "/software",
+          name: "产品介绍",
+          path: "/product",
           children: [
             {
-              name: "智能小镇管理系统",
-              path: "/software/smartTown"
+              name: "种子产品",
+              path: "/product/seeds"
             },
             {
-              name: "大数据管理系统",
-              path: "/software/bigData"
+              name: "炒货",
+              path: "/product/produces"
             }
           ]
-        },
-        {
-          name: "相关服务",
-          path: "/service",
-          children: []
-        },
-        {
-          name: "新闻动态",
-          path: "/newsinformation",
-          children: []
         },
         {
           name: "公司介绍",
@@ -122,13 +126,18 @@ export default {
           children: []
         },
         {
-          name: "工作机会",
-          path: "/jobchance",
+          name: "农艺技术",
+          path: "/agritech",
           children: []
         },
         {
           name: "联系我们",
           path: "/contactus",
+          children: []
+        },
+        {
+          name: "新闻动态",
+          path: "/newsinformation",
           children: []
         }
       ]
@@ -139,6 +148,15 @@ export default {
       this.navIndex = index;
       sessionStorage.setItem('navIndex',index)
       this.menuName = name;
+    },
+    navClickCollapse(index, name, path) {
+      this.navIndex = index;
+      sessionStorage.setItem('navIndex',index)
+      this.menuName = name;
+      this.$router.push(path)
+    },
+    navSubClick(path){
+      this.$router.push(path)
     },
     menuClick() {
       if (this.menuClass == "glyphicon glyphicon-menu-down") {
@@ -153,15 +171,19 @@ export default {
 <style scoped>
 /* 顶部 */
 #header {
-  background: #f4f4f4;
   transition: all ease 0.6s;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: beige;
 }
+
 #header .header-top {
   height: 50px;
   color: #fff;
   font-size: 12px;
   line-height: 50px;
-  background: #474747;
 }
 /* 顶部的图标 */
 #header .header-top span {
@@ -180,8 +202,8 @@ export default {
 }
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
-  width: 95px;
-  height: 45px;
+  width: 90px;
+  height: 84px;
   position: absolute;
   top: 0;
   left: 0;
@@ -208,7 +230,7 @@ export default {
 /* 导航栏 每个导航下面的 a 链接 */
 #header .header-nav .header-nav-wrapper > li > a {
   color: #000;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   padding: 15px 0;
   position: relative;
@@ -223,7 +245,7 @@ export default {
   height: 2px;
   opacity: 0;
   transition: all 0.6s ease;
-  background-color: #1e73be;
+  background-color: #2141c1;
 }
 /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
 #header .header-nav .header-nav-wrapper > li > a > span {
@@ -232,7 +254,7 @@ export default {
 }
 /* 导航栏 每个导航下面的 a 链接 鼠标滑上去的样式 */
 #header .header-nav .header-nav-wrapper > li > a:hover {
-  color: #1e73be;
+  color: #2141c1;
   text-decoration: none;
 }
 /* 导航栏 每个导航下面的 a 链接 鼠标滑上去下划线的样式 */
@@ -247,16 +269,15 @@ export default {
 }
 /* 导航栏 每个导航下面的 a 链接 鼠标点击后的样式 */
 #header .header-nav .header-nav-wrapper > li.active > a {
-  color: #1e73be;
   text-decoration: none;
-  border-bottom: 2px solid #1e73be;
+  border-bottom: 2px solid #2141c1;
 }
 /* 导航栏 每个导航下面的二级导航容器 */
 #header .header-nav .header-nav-wrapper > li > dl {
   display: none;
   position: absolute;
   width: 168px;
-  top: 80%;
+  top: 74%;
   left: 0;
   z-index: 999999;
   box-shadow: 0 0 3px 1px #ccc;
@@ -273,14 +294,23 @@ export default {
   text-decoration: none;
 }
 /* 导航栏 滑上一级导航显示二级导航 */
-#header .header-nav .header-nav-wrapper > li:hover dl {
+#header .header-nav .header-nav-wrapper > li > a:hover + dl {
+  display: block;
+}
+#header .header-nav .header-nav-wrapper > li > dl:hover {
   display: block;
 }
 #header .header-nav .header-nav-wrapper > li > dl > dt:hover {
   cursor: pointer;
   background: #ccc;
 }
-@media screen and (max-width: 997px) {
+@media screen and (max-width: 997px){
+  .header-nav {
+    height: 110px;
+    width: 768px!important;
+  }
+}
+@media screen and (max-width: 768px) {
   #header .header-nav-m {
     position: relative;
   }
@@ -291,10 +321,10 @@ export default {
   }
   /* 导航栏logo图片 */
   #header .header-nav-m .header-nav-m-logo img {
-    width: 95px;
-    height: 45px;
+    width: 120px;
+    height: 90px;
     position: absolute;
-    top: 0;
+    top: 17px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -302,11 +332,12 @@ export default {
   }
   /* 导航栏  菜单容器 */
   #header .header-nav-m .header-nav-m-menu {
+    margin-top: 20px;
     color: #fff;
     height: 50px;
     font-size: 20px;
     line-height: 50px;
-    background: #474747;
+    background: #337ab7;
     position: relative;
   }
   /* 导航栏 菜单图标 */
@@ -348,5 +379,57 @@ export default {
   #header .header-nav .header-nav-wrapper > li > a > span {
     font-size: 10px;
   }
+  .header-nav {
+    height: 110px;
+    width: 768px!important;
+  }
+  #header .dropdown {
+    width: 100%;
+  }
+
+
+  /*drop试验田 */
+  .dropdown-menu {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 !important;
+    background: #337ab7;
+  }
+
+  .dropdown-menu > div{
+    border: 1px solid;
+  }
+
+
+  .dropdown-item {
+      display: block;
+      width: 100%;
+      padding: .25rem 1.5rem;
+      clear: both;
+      font-weight: 400;
+      color: #212529;
+      text-align: inherit;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+  }
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: .3em solid transparent;
+}
+
+.dropdown-a {
+  color: #fff!important;
+  text-decoration: none!important;
 }
 </style>

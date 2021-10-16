@@ -20,44 +20,47 @@ export default new Router({
           name: 'home',
           component: resolve => require(['@/view/HomePage'], resolve),
           meta: {
-            title: '首页'
+            title: '吉林省新启源农业发展有限公司'
           }
         }, {
-          path: '/software',
-          name: 'software',
-          component: resolve => require(['@/view/Software'], resolve),
+          path: '/product',
+          name: 'product',
+          component: resolve => require(['@/view/product'], resolve),
           meta: {
-            title: '软件产品'
+            title: '在售产品'
           },
           children: [
             {
-              path: '/software',
-              redirect: '/software/smartTown'
+              path: '/product',
+              redirect: '/product/seeds'
             },
             {
-              path: '/software/smartTown',
-              name: 'software',
-              component: resolve => require(['@/view/Software_smartTown'], resolve),
+              path: '/product/seeds',
+              name: 'product',
+              component: resolve => require(['@/view/Product_seeds'], resolve),
               meta: {
-                title: '软件产品丨智能小镇管理系统'
+                title: '在售产品丨种子'
               }
             },
             {
-              path: '/software/bigData',
-              name: 'software',
-              component: resolve => require(['@/view/Software_bigData'], resolve),
+              path: '/product/produces',
+              name: 'product',
+              component: resolve => require(['@/view/Product_produces'], resolve),
               meta: {
-                title: '软件产品丨大数据管理系统'
+                title: '在售产品丨炒货'
               }
+            },
+            {
+              path: '/product/seed-detail/:seed_id',
+              name: 'seed-detail',
+              component: resolve => require(['@/view/Seed_detail'], resolve)
+            },
+            {
+              path: '/product/produce-detail/:produce_id',
+              name: 'produce-detail',
+              component: resolve => require(['@/view/Produce_detail'], resolve)
             }
           ]
-        }, {
-          path: '/service',
-          name: 'service',
-          component: resolve => require(['@/view/Service'], resolve),
-          meta: {
-            title: '相关服务'
-          }
         }, {
           path: '/newsinformation',
           name: 'newsinformation',
@@ -66,18 +69,15 @@ export default new Router({
             title: '新闻动态'
           }
         }, {
+          path: '/newsinformation/:news_id',
+          name: 'news-detail',
+          component: resolve => require(['@/view/News_detail'], resolve)
+        },{
           path: '/companyintroduction',
           name: 'companyintroduction',
           component: resolve => require(['@/view/CompanyIntroduction'], resolve),
           meta: {
             title: '公司介绍'
-          }
-        }, {
-          path: '/jobchance',
-          name: 'jobchance',
-          component: resolve => require(['@/view/JobChance'], resolve),
-          meta: {
-            title: '工作机会'
           }
         }, {
           path: '/contactus',
@@ -86,16 +86,23 @@ export default new Router({
           meta: {
             title: '联系我们'
           }
-        },
-        {
-          path: '/servicedetail',
-          name: 'servicedetail',
-          component: resolve => require(['@/view/ServiceDetail'],resolve),
+        }, {
+          path: '/agritech',
+          name: 'agritech',
+          component: resolve => require(['@/view/AgriTech'], resolve),
           meta: {
-            title: '相关服务'
+            title: '联系我们'
           }
+        }, {
+          path: '/agritech/:tech_id',
+          name: 'tech-detail',
+          component: resolve => require(['@/view/Tech_detail'], resolve)
         }
       ]
     }
-  ]
+  ],
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
