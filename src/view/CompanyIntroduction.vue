@@ -109,16 +109,12 @@ export default {
         loop: true, // 循环模式选项
         slidesPerView: 1,
         //自动播放
-        autoplay: {
-            delay: 3000,
-            stopOnLastSlide: false,
-            disableOnInteraction: false
-        },
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false,
+        autoplaystopOnLastSlide: false,
         // 如果需要前进后退按钮
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-        },
+        prevButton: ".swiper-button-prev",
+        nextButton: ".swiper-button-next",
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true //修改swiper的父元素时，自动初始化swiper
         });
