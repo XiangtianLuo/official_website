@@ -1,8 +1,8 @@
 <template>
   <div id="ContactUs">
-    <div class="container sub-container">
+    <div class="sub-container">
       <div class="container-fuild ContactUs-container">
-        <div class="row margin-content">
+        <div class="row">
 					<div class="col-xl-4 col-lg-6 col-md-6">
 						<div class="widget footer-widget img-margin-top">
 							<img src="@/assets/img/company-flower.png" alt="" class="company-logo">
@@ -15,7 +15,7 @@
 						</div>
 					</div>
           <div class="col-xs-12 col-sm-12 col-md-6">
-            <div id="map" class="wow zoomIn"></div>
+            <div id="map" class="wow zoomIn company-location-map"></div>
           </div>
         </div>
       </div>
@@ -55,12 +55,17 @@ export default {
 <style scoped>
 
 .sub-container {
-  min-height: 100vh;
-  background-color: white;
+    width: 70vw;
+    min-height: 100vh;
+    background-color: white;
+    margin-top: 7.688vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5vw;
 }
 
-.margin-content {
-  margin-top: 140px;
+.company-location-map {
+  height: 40vh!important;
 }
 
 .banner {
@@ -94,8 +99,8 @@ export default {
 }
 
 .address-margin {
-  margin-bottom: 10px;
-  font-size: 25px;
+  margin-bottom: 2vh;
+  font-size: 1.2vw;
 }
 
 .company-location {
@@ -124,9 +129,14 @@ export default {
 }
 
 .company-logo {
-  max-width: 100%;
+  width: 100%;
   margin-bottom: 20px;
+  height: 40vh;
 }
-
+@media screen and (max-width: 768px) {
+  .sub-container {
+      margin-top: 150px;
+  }
+}
 </style>
 

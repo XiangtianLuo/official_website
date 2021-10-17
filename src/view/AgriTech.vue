@@ -1,10 +1,10 @@
 <template>
     <div id="agriculture-tech">
-        <div class="container sub-container">
-            <div class="container text-center margin-content">
+        <div class="sub-container">
+            <div class="text-center">
                 <h3 class="agri-title">农艺技术</h3>
                 <div class="agri-row">
-                    <div 
+                    <div
                       class="col-md-4 col-sm-12 col-xs-12"
                       v-for="(agriItem,index) in agriList"
                       :key="index"
@@ -81,8 +81,14 @@ export default {
 </script>
 <style scoped>
 
-.margin-content {
-  margin-top: 140px;
+.sub-container {
+    width: 70vw;
+    min-height: 100vh;
+    background-color: white;
+    margin-top: 7.688vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5vw;
 }
 
 .sub-container {
@@ -106,6 +112,9 @@ export default {
   cursor: pointer;
 }
 
+#agriculture-tech .text-selection a {
+  font-size: 1.2vw;
+}
 
 #agriculture-tech .news-wrapper .news-thumb .news-top-meta {
     position: absolute;
@@ -119,11 +128,19 @@ export default {
     color: #fff;
 }
 
+#agriculture-tech .news-wrapper .news-thumb .news-top-meta span{
+  font-size: 1.2vw;
+}
+
 #agriculture-tech .news-wrapper .news-details .news-description .news-bottom-meta {
     color: #828c99;
     background: #f5f6fc;
     padding: 10px 20px;
     border-left: 3px solid #0c59db;
+}
+
+#agriculture-tech .news-wrapper .news-details .news-description .news-bottom-meta span{
+  font-size: 1.2vw;
 }
 
 #agriculture-tech .news-wrapper:hover .news-thumb img {
@@ -142,7 +159,7 @@ export default {
 
 #agriculture-tech .img-full {
   width: 100%;
-  height: 300px;
+  height: 26vh;
 }
 
 #agriculture-tech  .float-right{
@@ -156,7 +173,14 @@ export default {
 }
 
 .agri-title {
-  padding-top: 15px;
+  padding-top: 0.2vh;
+  font-size: 1.5vw
+}
+
+@media screen and (max-width: 768px) {
+  .sub-container {
+      margin-top: 150px;
+  }
 }
 </style>
 

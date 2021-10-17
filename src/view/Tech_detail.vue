@@ -1,8 +1,8 @@
 <template>
     <div id="NewsInformation">
-        <div class="container sub-container">
-            <div class="container text-center margin-content">
-                <div class="padding-20">
+        <div class="sub-container">
+            <div class="text-center margin-content">
+                <div class="padding-20 main-content">
                     <h3>{{ serverList[$route.params.tech_id - 1].title }}</h3>
                     <h5>{{ serverList[$route.params.tech_id - 1].date }}</h5>
                     <p class='main-content text-left'>{{ serverList[$route.params.tech_id - 1].description }}</p>
@@ -47,20 +47,34 @@ export default {
 </script>
 <style scoped>
 .sub-container {
+    width: 70vw;
     min-height: 100vh;
     background-color: white;
-    padding: 0px!important;
+    margin-top: 7.688vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5vw;
 }
 
 .padding-20 {
     padding: 0 20px;
 }
-.margin-content {
-    margin-top: 140px;
+
+.main-content h3 {
+    margin-bottom: 1vh;
+    font-size: 1.5vw;
 }
 
-.main-content {
-  margin-top: 50px;
-  font-size: 20px;
+.main-content h5 {
+  font-size: 1.2vw;
+}
+
+.main-content p {
+  font-size: 1.2vw
+}
+@media screen and (max-width: 768px) {
+  .sub-container {
+      margin-top: 150px;
+  }
 }
 </style>

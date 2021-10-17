@@ -23,7 +23,7 @@ export default {
 <style scoped>
 #footer {
   width: 100%;
-  height: 100%;
+  height: 20vh;
   color: rgb(0, 0, 0);
   background: beige;
   overflow: hidden;
@@ -31,29 +31,24 @@ export default {
   flex: 0 1 auto;
   border-top: 1px solid black;
 }
-.logo {
-  width: 95px;
-  height: 45px;
-  margin: 50px auto 20px;
-}
+
 .title {
-  font-size: 25px;
-  margin-bottom: 20px;
+  font-size: 1.5vw;
+  margin-bottom: 10px;
   margin-top: 5px;
 }
 .address_tel_fax {
   color: rgb(0, 0, 0);
-  font-size: 14px;
+  font-size: 1.2vw;
   margin: 10px 0;
 }
 .email_wx {
   color: rgb(0, 0, 0);
-  font-size: 14px;
+  font-size: 1.2vw;
 }
 .copy {
   color: rgb(0, 0, 0);
-  font-size: 14px;
-  margin: 50px 0 10px;
+  font-size: 1.2vw;
 }
 @media screen and (max-width: 997px) {
   .title {

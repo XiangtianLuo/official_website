@@ -211,7 +211,7 @@ export default {
 <style scoped>
 .card-img-top {
   width: 100%;
-  height: 400px;
+  height: 27vh;
   margin: 5px auto;
 }
 
@@ -225,7 +225,15 @@ export default {
   padding: 0 30px;
 }
 
+h3 {
+  font-size: 1.5vw;
+}
+
 .font-20 {
-  font-size: 20px;
+  font-size: 1.2vw;
+}
+
+.purchase-btn {
+  font-size: 1.5vw;
 }
 </style>

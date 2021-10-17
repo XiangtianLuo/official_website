@@ -1,6 +1,6 @@
 <template>
     <div id="CompanyIntroduction">
-        <div class="container sub-container">
+        <div class="sub-container">
             <div id="about-us" class="background-custom-2">
                 <section class="about-section anim-object">
                 <div>
@@ -109,7 +109,7 @@ export default {
         loop: true, // 循环模式选项
         slidesPerView: 1,
         //自动播放
-        autoplay: 3000,
+        autoplay: 300000,
         autoplayDisableOnInteraction: false,
         autoplaystopOnLastSlide: false,
         // 如果需要前进后退按钮
@@ -132,8 +132,13 @@ export default {
 }
 
 .sub-container {
+    width: 70vw;
     min-height: 100vh;
     background-color: white;
+    margin-top: 7.688vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5vw;
 }
 
 .row{
@@ -159,7 +164,7 @@ export default {
 
 #about-us .about-section {
   padding-bottom: 50px;
-  margin-top: 140px
+  margin-top: 2vh
 }
 
 #about-us .about-sub-section {
@@ -175,12 +180,18 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 0 20px;
+  font-size: 1.5vw
 }
 
 #about-us .about-title {
-  margin-bottom: 30px;
+  margin-bottom: 2vh;
   font-weight: bold;
-  padding-top: 15px;
+  padding-top: 0.3vh;
+  font-size: 1.3vw;
+}
+
+#about-us .company-intro p{
+    font-size: 1.2vw;
 }
 
 #about-us .about-sub-title {
@@ -206,23 +217,37 @@ export default {
 }
 #customer .customer-container {
     position: relative;
-    margin-bottom: 50px;
+    height: 80vh;
+    background-color: white;
 }
 #customer .swiper-container {
-  margin: 0 50px;
+  margin: 0 3vw;
   position: static;
-  height: 730px;
+  height: 70vh;
 }
 #customer .swiper-button-prev {
-    top: 60%;
+    top: 50%;
 }
 #customer .swiper-button-next {
-    top: 60%;
+    top: 50%;
 }
+
+#customer .swiper-button-prev{
+  width: 6vh;
+  height: 7vh;
+  background-size: 3vw 7vw;
+}
+
+#customer .swiper-button-next {
+  width: 6vh;
+  height: 7vh;
+  background-size: 3vw 7vw;
+}
+
 #customer .customer-title {
-  font-size: 30px;
+  font-size: 2vw;
   color: black;
-  margin: 0 0 30px;
+  margin: 0 0 0.1vh;
 }
 #customer .customer-block {
   background: #fff;
@@ -238,7 +263,7 @@ export default {
     padding: 20px;
     background-color: #fff;
     width: 100%;
-    height: 720px;
+    height: 100%;
     flex-direction: column;
     border-bottom: none;
     position: relative;
@@ -248,7 +273,11 @@ export default {
 
 #customer .customer-logo img {
   width: 100%;
-  height: 630px;
+  height: 60vh
+}
+
+#customer .customer-logo h4 {
+    font-size: 1.2vw;
 }
 #customer .customer-yh img {
   width: 34px;
@@ -263,6 +292,10 @@ export default {
 @media screen and (max-width: 997px){
     #about-us .company-img {
         padding: 10px 20px;
+    }
+
+    .sub-container {
+        margin-top: 150px;
     }
 
     #customer .swiper-slide{

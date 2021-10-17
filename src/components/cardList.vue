@@ -1,10 +1,10 @@
 <template>
   <div id="whyChooseUs" class="conatiner-fuild background-custom-1">
       <div 
-        :class="isContainer?'container':''"
+        :class="isContainer?'whyChooseUs-container':''"
       >
         <div class="whyChooseUs-title text-center">
-            <h2 class="margin-40">{{ cardtitle }}</h2>
+            <h2>{{ cardtitle }}</h2>
           </div>
           <div class="row">
           <div
@@ -19,7 +19,7 @@
               onmouseleave="this.style.color='#666';this.style.borderColor='#ccc'"
               >
               <img class="certificates" :src="item.logo" alt="logo">
-              <p class="text-center">{{item.title}}</p>
+              <p class="text-center certificates-text">{{item.title}}</p>
               </div>
           </div>
           </div>
@@ -63,15 +63,29 @@ export default {
 </script>
 <style scoped>
 /* 为什么选择我们 */
-#whyChooseUs {
-  padding: 100px;
+.whyChooseUs-container {
+  margin: 0 auto;
+  width: 70vw;
+  background-color: white;
+  padding: 2vw;
+}
+
+.row {
+  margin-right: 0!important;
+  margin-left: 0!important;
+}
+
+.certificates-text {
+  font-size: 1vw;
 }
 
 #whyChooseUs .server-wrapper{
   background-color: white;
 }
-#whyChooseUs .whyChooseUs-title {
-  margin-bottom: 50px;
+#whyChooseUs .whyChooseUs-title h2{
+  font-size: 1.5vw;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
 }
 #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
   font-size: 25px;
@@ -90,10 +104,10 @@ export default {
 }
 #whyChooseUs .server-block img {
   width: 100%;
-  height: 250px;
+  height: 27vh;
 }
 #whyChooseUs .server-block > p {
-  font-size: 20px;
+  font-size: 1vw;
   margin: 30px 0;
 }
 #whyChooseUs .server-block > div {
@@ -101,7 +115,6 @@ export default {
 }
 
 #whyChooseUs {
-  padding: 20px 0;
   transition: all ease 0.6s;
 }
 #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
@@ -118,12 +131,9 @@ export default {
 }
 #whyChooseUs .server-block img {
   width: 100%;
-  height: 250px;
+  height: 25vh;
 }
-#whyChooseUs .server-block > p {
-  font-size: 20px;
-  margin: 30px 0;
-}
+
 #whyChooseUs .server-block > div {
   color: #ccc;
 }

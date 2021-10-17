@@ -30,8 +30,8 @@ export default {
   width: 50px;
   height: 50px;
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 3vw;
+  bottom: 2vw;
   z-index: 99999999;
   cursor: pointer;
 }
@@ -40,6 +40,6 @@ export default {
   width: 100%;
   height: 100%;
   color: rgb(8, 162, 233);
-  font-size: 30px;
+  font-size: 2vw
 }
 </style>

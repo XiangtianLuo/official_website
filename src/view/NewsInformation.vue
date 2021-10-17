@@ -1,9 +1,7 @@
 <template>
     <div id="NewsInformation">
-        <div class="container sub-container">
+        <div class="sub-container">
             <div class="container text-center margin-content">
-                <h3>新闻动态</h3>
-                <p style="color:#b2b2b2">Company News</p>
                 <ul class="list-group">
                     <li 
                         v-for="(news, index) in newsList"
@@ -58,14 +56,25 @@ export default {
 }
 
 .sub-container {
+    width: 70vw;
     min-height: 100vh;
     background-color: white;
+    margin-top: 7.688vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5vw;
 }
 
 .news-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .sub-container {
+      margin-top: 150px;
+  }
 }
 </style>
 

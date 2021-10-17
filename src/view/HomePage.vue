@@ -2,7 +2,7 @@
   <div id="HomePage">
     <!-- 轮播图 -->
     <section class="video-section home-masthead lazyloaded">
-      <div class="container bg-title">
+      <div class="bg-title">
         <h1 class="company-title">新启源农科</h1>
         <h2 class="company-title-sub">一切为了客户，为了客户一切，为了一切客户</h2>
         <button 
@@ -19,45 +19,47 @@
     </section>
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
-      <div class="container customer-container">
-        <p class="customer-title text-center">在售产品</p>
-        <div class="swiper-container customer-swiper">
-          <div class="swiper-wrapper leftoffset">        
-            <div
-              class="swiper-slide"
-              v-for="(item,index) in productList"
-              :key="index"
-            >
-              <div class="c-promo">
-                <div class="customer-logo">
-                  <img class="center-block swiper-lazy" :src="item.logo" alt="logo">
+      <div class="customer-container-wrapper">
+        <div class="customer-container">
+          <p class="customer-title text-center">在售产品</p>
+          <div class="swiper-container customer-swiper">
+            <div class="swiper-wrapper leftoffset">        
+              <div
+                class="swiper-slide"
+                v-for="(item,index) in productList"
+                :key="index"
+              >
+                <div class="c-promo">
+                  <div class="customer-logo">
+                    <img class="center-block swiper-lazy" :src="item.logo" alt="logo">
+                  </div>
+                  <div class="flex-content text-center">
+                    <h3 >{{item.title}}</h3>
+                    <p>
+                      {{item.content}}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-primary sub-flex-button"
+                    @click='productDetail(item.id, item.type)'
+                  >
+                    了解详情
+                  </button>
                 </div>
-                <div class="flex-content text-center">
-                  <h3 >{{item.title}}</h3>
-                  <p>
-                    {{item.content}}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  class="btn btn-primary flex-button"
-                  @click='productDetail(item.id, item.type)'
-                >
-                  了解详情
-                </button>
               </div>
             </div>
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
-          <!-- 如果需要导航按钮 -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
       </div>
     </div>
     <!-- 公司简介 -->
     <div id="about-us">
       	<section class="about-section anim-object">
-          <div class="container">
+          <div class="about-sub-container">
             <div class="company-row align-items-center justify-content-center">
               <div class="col-sm-12 col-md-6 company-img">
                 <div class="about-image-block mrb-lg-60">
@@ -96,7 +98,7 @@
     <div id="agriculture-tech">
       <section>
         <div class="section-content">
-          <div class="container">
+          <div class="agri-container">
             <div class="agri-row">
               <div class="col-lg-8 col-xl-6">
                 <h2 class="agri-title"> 农艺技术 </h2>
@@ -104,7 +106,7 @@
               <div class="col-lg-4 col-xl-6 align-self-center text-left text-lg-right">
                 <button 
                   type="button"
-                  class="btn btn-primary float-right"
+                  class="btn btn-primary float-right agri-button"
                   v-on:click='goToAgriTech'
                 >
                   更多农艺技术
@@ -141,15 +143,17 @@
     </div>
     <!-- 您身边的农业专家 -->
     <div id="contactUs" class="container-fuild text-center">
-      <div class="container contactUs-container wow slideInUp">
-        <h1>值得信赖的农业专家</h1>
-        <h3>为您提供专业的农业服务</h3>
-        <button
-          class="btn-outline-info btn-sm btn-special"
-          onmouseleave="this.style.borderColor='#337ab7'; this.style.backgroundColor='transparent'; this.style.color='#3f3f3f';"
-          onmouseenter="this.style.backgroundColor='#337ab7'"
-          v-on:click="goContactUs"
-        >联系我们</button>
+      <div class="contactUs-container slideInUp">
+        <div class="contactUs-row">
+          <h1>值得信赖的农业专家</h1>
+          <h3>为您提供专业的农业服务</h3>
+          <button
+            class="btn-outline-info btn-sm btn-special"
+            onmouseleave="this.style.borderColor='#337ab7'; this.style.backgroundColor='transparent'; this.style.color='#3f3f3f';"
+            onmouseenter="this.style.backgroundColor='#337ab7'"
+            v-on:click="goContactUs"
+          >联系我们</button>
+        </div>
       </div>
     </div>
   </div>
@@ -303,7 +307,7 @@ export default {
       // 取消click阻止，用于点击卡片上面的按钮
       preventClicksPropagation: false,
       //自动播放
-      autoplay: 3000,
+      autoplay: 300000,
       autoplayDisableOnInteraction: false,
       autoplaystopOnLastSlide: false,
       // 如果需要前进后退按钮
@@ -406,7 +410,7 @@ export default {
 
 .bg-title {
   position: relative;
-  top: 250px;
+  top: 25%;
   left: 0;
   text-align: center;
   z-index: 10;
@@ -415,17 +419,12 @@ export default {
 #about-us .company-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  padding: 5vw;
 }
 
 #about-us .img-full {
   width: 100%;
-}
-
-#about-us .about-section {
-  padding-bottom: 50px;
-  padding-top: 110px;
+  height: 70vh;
 }
 
 #about-us .about-sub-section {
@@ -440,16 +439,24 @@ export default {
   justify-content: center;
 }
 
+#about-us .about-sub-container {
+  width: 70vw;
+  margin: 0 auto;
+  background-color: white;
+}
+
 #about-us .company-intro {
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
-  font-size: 18px;
+  padding: 0 0.5vw;
+  font-size: 1.2vw;
 }
 
 #about-us .about-title {
-  margin-bottom: 30px;
+  margin-bottom: 0.3vh;
   font-weight: bold;
+  padding-top: 0.3vh;
+  font-size: 1.5vw;
 }
 
 #about-us .about-sub-title {
@@ -507,10 +514,10 @@ export default {
 }
 
 #customer .swiper-button-next {
-  top: 60%;
+  top: 50%;
 }
 #customer .swiper-button-prev {
-  top: 60%;
+  top: 50%;
 }
 
 #swiper .banner-swiper .swiper-slide-title {
@@ -552,11 +559,13 @@ export default {
 
 #contactUs {
   color: rgb(1, 1, 1);
-  height: 360px;
-  transition: all ease 0.6s;
+  height: 100%;
 }
 #contactUs .contactUs-container {
-  padding-top: 50px;
+  width: 70vw;
+  height: 36vh;
+  background-color: white;
+  margin: 0 auto;
 }
 #contactUs .contactUs-container button {
   width: 300px;
@@ -572,30 +581,48 @@ export default {
 
 /* 客户评价 */
 #customer {
-  padding: 30px 0 50px 0;
   box-sizing: border-box;
   transition: all ease 0.6s;
+  height: 40vh;
 }
 
 .company-title {
   font-family: cursive;
   font-style: italic;
   font-weight: bold;
+  font-size: 3vh;
 }
 
 .company-title-sub {
   font-family: cursive;
   font-style: italic;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 3vh;
 }
 
 
 .flex-content {
   flex: 1 1 auto;
-  padding-top: 20px;
+  padding-top: 0.1vh;
 }
+
+.flex-content p {
+  font-size: 1vw;
+}
+
+.flex-content h3 {
+  font-size: 1.5vw;
+  margin-top: 0.2vh;
+  margin-bottom: 0.2vh;
+}
+
+.sub-flex-button {
+  font-size: 1vw;
+  flex: 0 1 auto;
+}
+
 .flex-button {
+  font-size: 1.5vw;
   flex: 0 1 auto;
 }
 
@@ -617,9 +644,9 @@ export default {
 }
 
 #customer .customer-title {
-  font-size: 30px;
+  font-size: 2vh;
   color: black;
-  margin: 0 0 30px;
+  margin: 0 0 0.5vh;
 }
 #customer .customer-block {
   background: #fff;
@@ -629,7 +656,8 @@ export default {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     border-radius: 25px;
-    padding: 20px;
+    padding: 1vw;
+    height: 100%;
     background-color: #fff;
     flex-direction: column;
     border-bottom: none;
@@ -640,7 +668,7 @@ export default {
 
 #customer .customer-logo img {
   width: 100%;
-  height: 134px;
+  height: 15vh;
 }
 #customer .customer-yh img {
   width: 34px;
@@ -651,8 +679,30 @@ export default {
   border-bottom: 1px solid #0ce9f1;
 }
 
+#customer .customer-container-wrapper {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+#customer .swiper-button-prev{
+  width: 6vh;
+  height: 7vh;
+  background-size: 3vw 7vw;
+}
+
+#customer .swiper-button-next {
+  width: 6vh;
+  height: 7vh;
+  background-size: 3vw 7vw;
+}
+
+
 #customer .customer-container {
   position: relative;
+  height: 40vh;
+  width: 70vw;
+  background-color: white;
+  padding: 2vw;
 }
 
 #customer .swiper-container {
@@ -660,10 +710,6 @@ export default {
   position: static;
 }
 /* 为什么选择我们 */
-#whyChooseUs {
-  padding: 100px;
-}
-
 #whyChooseUs .whyChooseUs-title {
   margin-bottom: 50px;
 }
@@ -683,7 +729,7 @@ export default {
 }
 #whyChooseUs .server-block img {
   width: 100%;
-  height: 250px;
+  height: 25vh;
 }
 #whyChooseUs .server-block > p {
   font-size: 20px;
@@ -691,11 +737,6 @@ export default {
 }
 #whyChooseUs .server-block > div {
   color: #ccc;
-}
-
-#agriculture-tech {
-  padding-top: 105px;
-  padding-bottom: 80px;
 }
 
 #agriculture-tech .section-title {
@@ -717,6 +758,17 @@ export default {
 }
 
 
+#agriculture-tech .section-content {
+  width: 70vw;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2vw;
+}
+
+#agriculture-tech .agri-button {
+  font-size: 1.5vw;
+}
+
 #agriculture-tech .agri-row {
   display: flex;
   flex-wrap: wrap;
@@ -724,6 +776,14 @@ export default {
 
 #agriculture-tech .text-selection:hover {
   cursor: pointer;
+}
+
+#agriculture-tech .text-selection a {
+  font-size: 1.2vw;
+}
+
+#agriculture-tech .news-wrapper .news-thumb .news-top-meta span{
+  font-size: 1.2vw;
 }
 
 #agriculture-tech .news-wrapper .news-thumb .news-top-meta {
@@ -745,6 +805,11 @@ export default {
     border-left: 3px solid #0c59db;
 }
 
+
+#agriculture-tech .news-wrapper .news-details .news-description .news-bottom-meta span{
+  font-size: 1.2vw;
+}
+
 #agriculture-tech .news-wrapper:hover .news-thumb img {
   -moz-transform: scale3d(1.1, 1.1, 1.1);
   -o-transform: scale3d(1.1, 1.1, 1.1);
@@ -758,20 +823,35 @@ export default {
   transition: 0.3s;
 }
 
-
 #agriculture-tech .img-full {
     width: 100%;
-    height: 300px;
+    height: 26vh;
 }
 
 #agriculture-tech  .float-right{
   float: right;
 }
 
+#agriculture-tech .agri-title {
+  padding-top: 0.2vh;
+  font-size: 1.5vw
+}
 
-#agriculture-tech  .agri-title {
-  margin-bottom: 36px !important;;
-  margin-top: 0px !important;;
+#contactUs .contactUs-row {
+    height: 100%;
+    padding: 2vw;
+  }
+#contactUs .contactUs-container h1 {
+  font-size: 2vw;
+}
+#contactUs .contactUs-container h3 {
+  font-size: 1.8vw;
+}
+#contactUs .contactUs-container button {
+  width: 15vw;
+  height: 5vh;
+  margin-top: 1vh;
+  font-size: 1.2vw;
 }
 
 /* 媒体查询（手机） */
@@ -804,6 +884,7 @@ export default {
     height: 200px;
     transition: all ease 0.6s;
   }
+
   #contactUs .contactUs-container {
     padding-top: 0;
   }
@@ -829,6 +910,10 @@ export default {
     box-sizing: border-box;
     background: #fff;
   }
+  #customer .customer-container {
+    width: 100%;
+  }
+
   #customer .leftoffset {
     margin-left: 2px;
   }
@@ -851,29 +936,34 @@ export default {
     width: 100%;
   }
   #whyChooseUs {
-    padding: 20px 0;
     transition: all ease 0.6s;
   }
+
   #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
     font-size: 20px;
     font-weight: 700;
   }
+
   #whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
     font-size: 12px;
   }
+
   #whyChooseUs .server-block {
     padding: 50px 0;
     border: 1px solid #ccc;
     border-bottom: 5px solid #ccc;
   }
+
   #whyChooseUs .server-block img {
     width: 100%;
     height: 250px;
   }
+
   #whyChooseUs .server-block > p {
     font-size: 20px;
     margin: 30px 0;
   }
+
   #whyChooseUs .server-block > div {
     color: #ccc;
   }

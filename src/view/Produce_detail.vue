@@ -6,9 +6,6 @@
       </h3>
       <p class="text-center font-20">{{ seedList[$route.params.produce_id].content }}</p>
     </div>
-    <h3 class="text-center">
-        前往淘宝店铺购买
-    </h3>
     <div class="button-wrapper">
       <button
         class="btn btn-outline-success text-center purchase-btn"
@@ -127,7 +124,7 @@ export default {
 <style scoped>
 .card-img-top {
   width: 100%;
-  height: 400px;
+  height: 40vh;
   margin: 5px auto;
 }
 
@@ -147,11 +144,15 @@ export default {
   height: 100px;
 }
 
+h3 {
+  font-size: 1.5vw;
+}
+
 .font-20 {
-  font-size: 20px;
+  font-size: 1.2vw;
 }
 
 .purchase-btn {
-  font-size: 25px;
+  font-size: 1.5vw;
 }
 </style>

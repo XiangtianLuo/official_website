@@ -1,7 +1,7 @@
 <template>
-    <div id="Product" class="container">
+    <div id="Product" class="product-container">
         <div class="row">
-            <div class="container sub-container">
+            <div class="sub-container">
                 <router-view></router-view>
             </div>
         </div>
@@ -28,13 +28,15 @@ export default {
     margin: 50px 0;
 }
 
-#Product {
-    margin-top: 100px;
-}
 
 .sub-container {
+    width: 70vw;
     min-height: 100vh;
     background-color: white;
+    margin-top: 7.688vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vw;
 }
 
 .left-container{
@@ -81,6 +83,11 @@ export default {
         border: 1px solid #474747;
         border-radius: 5px;
         float: unset;
+    }
+    @media screen and (max-width: 768px) {
+        .sub-container {
+        margin-top: 150px;
+        }
     }
 }
 

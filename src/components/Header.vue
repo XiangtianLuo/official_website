@@ -3,7 +3,7 @@
   <div id="header" class="container-fuild">
     <!-- 头部顶部 -->
     <!-- 电脑导航 -->
-    <div class="header-nav container hidden-xs">
+    <div class="header-nav hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
         <img src="@/assets/img/company-logo.png">
@@ -19,7 +19,6 @@
           <router-link :to="item.path">
             {{item.name}}
             <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
-            <i class="underline"></i>
           </router-link>
           <dl v-if="item.children.length>0">
             <dt
@@ -175,9 +174,15 @@ export default {
   position: absolute;
   top: 0;
   width: 100%;
+  height: 7.688vw;
   z-index: 999;
+  padding: 0 15.22vw;
   background-color: beige;
 }
+.glyphicon {
+  font-size: 1.2vw;
+}
+
 
 #header .header-top {
   height: 50px;
@@ -195,15 +200,15 @@ export default {
 }
 /* 导航栏logo */
 #header .header-nav .header-nav-logo {
-  width: 100px;
-  height: 100%;
+  width: 8vw;
+  height: 7vw;
   float: left;
   position: relative;
 }
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
-  width: 90px;
-  height: 84px;
+  width: 8vw;
+  height: 6vw;
   position: absolute;
   top: 0;
   left: 0;
@@ -216,23 +221,25 @@ export default {
   line-height: 50px;
 }
 #header .header-nav .header-nav-wrapper {
-  line-height: 110px;
+  line-height: 8vw;
   float: right;
   margin: 0;
-  max-width: 800px;
+  height: 7vw;
 }
 /* 导航栏 每个导航 */
 #header .header-nav .header-nav-wrapper > li {
   float: left;
-  margin: 0 15px;
+  padding: 0 1vw;
   position: relative;
 }
 /* 导航栏 每个导航下面的 a 链接 */
 #header .header-nav .header-nav-wrapper > li > a {
+  display: block;
   color: #000;
-  font-size: 20px;
+  font-size: 1.5vw;
+  width: 100%;
+  height: 100%;
   font-weight: bold;
-  padding: 15px 0;
   position: relative;
 }
 /* 导航栏 每个导航下面的 a 链接的下划线 */
@@ -242,14 +249,13 @@ export default {
   bottom: -2px;
   left: 50%;
   width: 0;
-  height: 2px;
+  height: 0.1vw;
   opacity: 0;
   transition: all 0.6s ease;
   background-color: #2141c1;
 }
 /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
 #header .header-nav .header-nav-wrapper > li > a > span {
-  font-size: 12px;
   transition: transform ease 0.5s;
 }
 /* 导航栏 每个导航下面的 a 链接 鼠标滑上去的样式 */
@@ -270,13 +276,13 @@ export default {
 /* 导航栏 每个导航下面的 a 链接 鼠标点击后的样式 */
 #header .header-nav .header-nav-wrapper > li.active > a {
   text-decoration: none;
-  border-bottom: 2px solid #2141c1;
+  border-bottom: 0.5vw solid #2141c1;
 }
 /* 导航栏 每个导航下面的二级导航容器 */
 #header .header-nav .header-nav-wrapper > li > dl {
   display: none;
   position: absolute;
-  width: 168px;
+  width: 8vw;
   top: 74%;
   left: 0;
   z-index: 999999;
@@ -285,7 +291,7 @@ export default {
 }
 /* 导航栏 每个导航下面的二级导航容器的每个导航 */
 #header .header-nav .header-nav-wrapper > li > dl > dt {
-  width: 100%;
+  width: 8vw;
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
@@ -293,6 +299,11 @@ export default {
 #header .header-nav .header-nav-wrapper > li > dl > dt > a:hover {
   text-decoration: none;
 }
+
+#header .header-nav .header-nav-wrapper > li > dl > dt > a {
+  font-size: 1vw;
+}
+
 /* 导航栏 滑上一级导航显示二级导航 */
 #header .header-nav .header-nav-wrapper > li > a:hover + dl {
   display: block;
@@ -311,6 +322,17 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
+  #header {
+    -webkit-transition: all .6s ease;
+    transition: all .6s ease;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: beige;
+    padding: 0;
+    height: auto;
+}
   #header .header-nav-m {
     position: relative;
   }
