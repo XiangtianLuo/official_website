@@ -295,7 +295,8 @@ export default {
     }
 
     .sub-container {
-        margin-top: 150px;
+      width: 100%;
+      margin-top: 150px;
     }
 
     #customer .swiper-slide{
@@ -306,16 +307,15 @@ export default {
         padding: 10px 0;
         color: #808080;
     }
-
-    #customer .c-promo {
-        height: 420px;
-    }
-
     #customer .swiper-container {
-        height: 420px;
+        height: 40vh;
+        margin: 0 10vw;
     }
     #customer .customer-logo img {
-        height: 330px;
+        height: 30vh;
+    }
+    #customer .customer-container {
+        height: 50vh;
     }
 }
 

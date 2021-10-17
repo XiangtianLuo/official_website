@@ -870,6 +870,24 @@ export default {
     display: none;
   }
 
+  #customer .customer-container-wrapper {
+    width: 100%;
+  }
+
+  #about-us .about-sub-container {
+    width: 100%;
+  }
+
+  #contactUs .contactUs-container {
+    width: 100%;
+  }
+
+  #agriculture-tech .section-content {
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2vw;
+  }
   .bg-title {
     top: 130px;
   }

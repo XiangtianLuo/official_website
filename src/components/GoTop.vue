@@ -42,4 +42,14 @@ export default {
   color: rgb(8, 162, 233);
   font-size: 2vw
 }
+
+@media screen and (max-width: 768px) {
+  #GoTop {
+    right: 20px;
+    bottom: 20px;
+  }
+  #GoTop > span {
+    font-size: 30px;
+  }
+}
 </style>

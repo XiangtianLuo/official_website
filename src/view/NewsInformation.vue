@@ -72,9 +72,10 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .sub-container {
-      margin-top: 150px;
-  }
+    .sub-container {
+        width: 100%;
+        margin-top: 150px;
+    }
 }
 </style>
 

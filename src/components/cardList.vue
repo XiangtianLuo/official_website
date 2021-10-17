@@ -144,5 +144,8 @@ export default {
   #whyChooseUs .margin-40 {
     margin-top: 40px!important;
   }
+  .whyChooseUs-container {
+    width: 100%;
+  }
 }
 </style>
