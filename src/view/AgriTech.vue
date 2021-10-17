@@ -1,6 +1,6 @@
 <template>
     <div id="agriculture-tech">
-        <div class="container">
+        <div class="container sub-container">
             <div class="container text-center margin-content">
                 <h3 class="agri-title">农艺技术</h3>
                 <div class="agri-row">
@@ -83,6 +83,11 @@ export default {
 
 .margin-content {
   margin-top: 140px;
+}
+
+.sub-container {
+  min-height: 100vh;
+  background-color: white;
 }
 
 #agriculture-tech .news-wrapper .news-thumb {

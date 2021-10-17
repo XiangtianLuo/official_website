@@ -1,10 +1,12 @@
 <template>
     <div id="NewsInformation">
-        <div class="container">
+        <div class="container sub-container">
             <div class="container text-center margin-content">
-                <h3>{{ serverList[$route.params.tech_id - 1].title }}</h3>
-                <h5>{{ serverList[$route.params.tech_id - 1].date }}</h5>
-                <p class='main-content text-left'>{{ serverList[$route.params.tech_id - 1].description }}</p>
+                <div class="padding-20">
+                    <h3>{{ serverList[$route.params.tech_id - 1].title }}</h3>
+                    <h5>{{ serverList[$route.params.tech_id - 1].date }}</h5>
+                    <p class='main-content text-left'>{{ serverList[$route.params.tech_id - 1].description }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -44,6 +46,15 @@ export default {
 };
 </script>
 <style scoped>
+.sub-container {
+    min-height: 100vh;
+    background-color: white;
+    padding: 0px!important;
+}
+
+.padding-20 {
+    padding: 0 20px;
+}
 .margin-content {
     margin-top: 140px;
 }

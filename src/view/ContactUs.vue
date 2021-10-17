@@ -1,6 +1,6 @@
 <template>
   <div id="ContactUs">
-    <div class="container">
+    <div class="container sub-container">
       <div class="container-fuild ContactUs-container">
         <div class="row margin-content">
 					<div class="col-xl-4 col-lg-6 col-md-6">
@@ -53,6 +53,11 @@ export default {
 };
 </script>
 <style scoped>
+
+.sub-container {
+  min-height: 100vh;
+  background-color: white;
+}
 
 .margin-content {
   margin-top: 140px;

@@ -1,6 +1,6 @@
 <template>
     <div id="NewsInformation">
-        <div class="container">
+        <div class="container sub-container">
             <div class="container text-center margin-content">
                 <h3>新闻动态</h3>
                 <p style="color:#b2b2b2">Company News</p>
@@ -55,6 +55,11 @@ export default {
 <style scoped>
 .margin-content {
     margin-top: 140px;
+}
+
+.sub-container {
+    min-height: 100vh;
+    background-color: white;
 }
 
 .news-header {

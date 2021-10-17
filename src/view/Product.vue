@@ -1,7 +1,7 @@
 <template>
     <div id="Product" class="container">
         <div class="row">
-            <div class="container">
+            <div class="container sub-container">
                 <router-view></router-view>
             </div>
         </div>
@@ -30,6 +30,11 @@ export default {
 
 #Product {
     margin-top: 100px;
+}
+
+.sub-container {
+    min-height: 100vh;
+    background-color: white;
 }
 
 .left-container{

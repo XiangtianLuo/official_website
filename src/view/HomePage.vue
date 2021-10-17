@@ -378,6 +378,11 @@ export default {
 #HomePage {
   width: 100%;
 }
+
+.h3 {
+  margin: 0!important;
+}
+
 .btn-special {
   background-color: transparent;
   border-color: #337ab7;
@@ -626,7 +631,6 @@ export default {
     border-radius: 25px;
     padding: 20px;
     background-color: #fff;
-    height: 360px;
     flex-direction: column;
     border-bottom: none;
     position: relative;
@@ -877,10 +881,6 @@ export default {
 
 /* 媒体查询（平板） */
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-  #swiper {
-    height: 360px;
-  }
-
   .bg-title {
     top: 130px;
   }

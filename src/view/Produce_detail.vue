@@ -6,9 +6,12 @@
       </h3>
       <p class="text-center font-20">{{ seedList[$route.params.produce_id].content }}</p>
     </div>
+    <h3 class="text-center">
+        前往淘宝店铺购买
+    </h3>
     <div class="button-wrapper">
       <button
-        class="btn btn-outline-success text-center"
+        class="btn btn-outline-success text-center purchase-btn"
       ><a :href='seedList[$route.params.produce_id].link'>
         点击购买
       </a>
@@ -146,5 +149,9 @@ export default {
 
 .font-20 {
   font-size: 20px;
+}
+
+.purchase-btn {
+  font-size: 25px;
 }
 </style>

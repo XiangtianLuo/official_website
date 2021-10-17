@@ -1,6 +1,6 @@
 <template>
     <div id="CompanyIntroduction">
-        <div class="container">
+        <div class="container sub-container">
             <div id="about-us" class="background-custom-2">
                 <section class="about-section anim-object">
                 <div>
@@ -129,6 +129,11 @@ export default {
     font-size: 30px;
     height: 150px;
     line-height: 150px;
+}
+
+.sub-container {
+    min-height: 100vh;
+    background-color: white;
 }
 
 .row{
