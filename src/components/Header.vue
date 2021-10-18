@@ -23,7 +23,7 @@
           <dl v-if="item.children.length>0">
             <dt
               v-for="(i,n) in item.children" :key="n"
-              @click="navSubClick(i.path)"
+              @click="navSubClick(index, i.name, i.path)"
             >
               <a>{{i.name}}</a>
             </dt>
@@ -37,13 +37,15 @@
         <img class="center-block mobile-header-img" src="@/assets/img/company-logo.png" alt="logo">
       </div>
       <!-- 导航栏 -->
-      <div class="header-nav-m-menu text-center">
+      <div
+        class="header-nav-m-menu text-center"
+        data-toggle="collapse"
+        data-target="#menu"
+        @click="menuClick"
+      >
         {{menuName}}
         <div
           class="header-nav-m-menu-wrapper"
-          data-toggle="collapse"
-          data-target="#menu"
-          @click="menuClick"
         >
           <span :class="menuClass"></span>
         </div>
@@ -78,7 +80,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <div
                   v-for="(i,n) in item.children" :key="n"
-                  @click="navSubClick(i.path)"
+                  @click="navSubClick(index, i.name, i.path)"
                 >
                   <a class="dropdown-a">{{i.name}}</a>
                   <i class="underline"></i>
@@ -154,7 +156,10 @@ export default {
       this.menuName = name;
       this.$router.push(path)
     },
-    navSubClick(path){
+    navSubClick(index, name, path){
+      this.navIndex = index;
+      sessionStorage.setItem('navIndex',index)
+      this.menuName = name;
       this.$router.push(path)
     },
     menuClick() {

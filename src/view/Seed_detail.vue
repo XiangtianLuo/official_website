@@ -211,7 +211,7 @@ export default {
 <style scoped>
 .card-img-top {
   width: 100%;
-  height: 27vh;
+  height: 38vh;
   margin: 5px auto;
 }
 
