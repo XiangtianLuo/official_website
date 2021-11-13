@@ -214,7 +214,7 @@ export default {
           title:
              "白绿8号",
           content:
-            "该品种经吉林省白城市农业科学院食用豆研究所育成，由吉林省新启源农业发展有限公司生产..."
+            "该品种经吉林省白城市农业科学院食用豆研究所育成，由吉林省新启源农业发展有限公司生产..."
         },
         {
           logo: require("@/assets/img/袋装瓜子-01.png"),
@@ -222,7 +222,7 @@ export default {
           type: 'produce',
           title:
             "袋装瓜子",
-          content: "品名: 山富老儿原味香瓜子 东北特产5袋装大粒原味瓜子 坚果零食 保质期180天..."
+          content: "品名: 山富老儿原味香瓜子 东北特产5袋装大粒原味瓜子 干净饱满 坚果零食 保质期180天..."
         },
         {
           logo: require("@/assets/img/精品瓜子-01.png"),
@@ -243,7 +243,7 @@ export default {
           id: 3,
           type: 'produce',
           title: "瓜子礼盒",
-          content: "山富老儿原味瓜子 葵花籽 铁罐礼盒 坚果零食炒货包邮 年货礼盒 保质期: 180天..."
+          content: "山富老儿原味瓜子 葵花籽 铁罐礼盒 坚果零食炒货包邮 年货礼盒 干净饱满 保质期: 180天..."
         },
       ],
       qualificationTitle:'为什么选择我们',
@@ -307,7 +307,7 @@ export default {
       // 取消click阻止，用于点击卡片上面的按钮
       preventClicksPropagation: false,
       //自动播放
-      autoplay: 300000,
+      autoplay: 3000,
       autoplayDisableOnInteraction: false,
       autoplaystopOnLastSlide: false,
       // 如果需要前进后退按钮
@@ -342,10 +342,10 @@ export default {
 
     clickAgriTech(id){
         this.$router.push({
-            name: 'tech-detail',
-            params: {
-                tech_id: id
-            }
+          name: 'tech-detail',
+          params: {
+              tech_id: id
+          }
         })
     },
 
@@ -872,6 +872,41 @@ export default {
 
   #customer .customer-container-wrapper {
     width: 100%;
+  }
+
+  .flex-content p {
+    font-size: 1.5vh;
+  }
+
+  .flex-content h3 {
+    font-size: 2.0vh;
+    margin-top: 0.2vh;
+    margin-bottom: 0.2vh;
+  }
+
+  .sub-flex-button {
+    font-size: 1.5vh;
+    flex: 0 1 auto;
+  }
+
+  .flex-button {
+    font-size: 1.5vh;
+    flex: 0 1 auto;
+  }
+
+  #about-us .company-intro {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5vw;
+    font-size: 1.5vh;
+  }
+
+  #agriculture-tech .text-selection a {
+    font-size: 1.5vh;
+  }
+
+  #contactUs .contactUs-container button {
+    font-size: 1.2vh;
   }
 
   #about-us .about-sub-container {

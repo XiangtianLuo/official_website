@@ -155,4 +155,19 @@ h3 {
 .purchase-btn {
   font-size: 1.5vw;
 }
+
+
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 1.5vh;
+  }
+
+  .font-20 {
+    font-size: 1.5vh;
+  }
+
+  .purchase-btn {
+    font-size: 1.5vh;
+  }
+}
 </style>

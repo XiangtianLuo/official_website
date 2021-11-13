@@ -182,6 +182,22 @@ export default {
     width: 100%;
     margin-top: 150px;
   }
+
+  #agriculture-tech .text-selection a {
+    font-size: 1.5vh;
+  }
+
+  #agriculture-tech .news-wrapper .news-thumb .news-top-meta span{
+    font-size: 1.5vh;
+  }
+  
+  #agriculture-tech .news-wrapper .news-details .news-description .news-bottom-meta span{
+      font-size: 1.5vh;
+  }
+  .agri-title {
+    padding-top: 0.2vh;
+    font-size: 1.5vh;
+  }
 }
 </style>
 

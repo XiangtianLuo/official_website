@@ -13,7 +13,6 @@
         <li
           v-for="(item,index) in navList"
           :key="index"
-          :class="index==navIndex?'active':''"
           @click="navClick(index,item.name)"
         >
           <router-link :to="item.path">
@@ -414,6 +413,9 @@ export default {
     width: 100%;
   }
 
+  .glyphicon {
+    font-size: 1.5vh;
+  }
 
   /*drop试验田 */
   .dropdown-menu {

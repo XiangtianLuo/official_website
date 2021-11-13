@@ -109,7 +109,7 @@ export default {
         loop: true, // 循环模式选项
         slidesPerView: 1,
         //自动播放
-        autoplay: 300000,
+        autoplay: 3000,
         autoplayDisableOnInteraction: false,
         autoplaystopOnLastSlide: false,
         // 如果需要前进后退按钮
@@ -316,6 +316,35 @@ export default {
     }
     #customer .customer-container {
         height: 50vh;
+    }
+
+
+    #about-us .company-intro {
+        font-size: 1.5vh
+    }
+
+    #about-us .about-title {
+        font-size: 1.5vh;
+    }
+
+    #about-us .company-intro p{
+        font-size: 1.5vh;
+    }
+    
+    #customer .customer-title {
+    font-size: 2vh;
+    }
+
+    #about-us .about-title {
+        font-size: 1.5vh;
+    }
+
+    #about-us .company-intro p{
+        font-size: 1.5vh;
+    }
+
+    #customer .customer-logo h4 {
+        font-size: 1.5vh;
     }
 }
 

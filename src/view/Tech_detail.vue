@@ -77,5 +77,17 @@ export default {
       width: 100%;
       margin-top: 150px;
     }
+    .main-content h3 {
+        margin-bottom: 1vh;
+        font-size: 1.5vh;
+    }
+
+    .main-content h5 {
+        font-size: 1.5vh;
+    }
+
+    .main-content p {
+        font-size: 1.5vh
+    }
 }
 </style>

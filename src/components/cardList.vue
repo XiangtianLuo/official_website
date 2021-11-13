@@ -147,5 +147,12 @@ export default {
   .whyChooseUs-container {
     width: 100%;
   }
+  #whyChooseUs .server-block p {
+    font-size: 1.5vh;
+  }
+
+  #whyChooseUs .whyChooseUs-title h2 {
+    font-size: 1.5vh;
+  }
 }
 </style>
